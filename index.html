@@ -2,26 +2,17 @@
 <html>
 <body>
 
+ CS5331 Test
+  
 <script>
 
-function handleMessage(e) {
-
-  var data = JSON.parse(e.data); // parse stringified data
-  var msg = ''; // holds info on validity of entries
-        
-  if (!msg) {
-    msg = 'Your entries have been processed.';
-  }
-  
-  alert(msg);
+function receiveMessage(e) {
+  var data = JSON.parse(e.data);
+  alert(data);
 }
 
+window.addEventListener("message", receiveMessage, false);
 
-if (window.addEventListener ) {
-    window.addEventListener('message', handleMessage, false);
-} else if ( window.attachEvent ) { // ie8
-    window.attachEvent('onmessage', handleMessage);
-}
  
 </script>
 

@@ -8,8 +8,6 @@ CS5331 Test2
 
 function receiveMessage(e) {
   var data = JSON.parse(e.data);
-  alert(data.content);
-  alert(data.search_engine);
   
   if (data.search_engine == 1)
   	window.location.replace('https://www.google.com/search?q=' + data.content);

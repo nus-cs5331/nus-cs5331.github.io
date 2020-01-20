@@ -2,18 +2,27 @@
 <html>
 <body>
 
+CS5331 Test1
+  
 <script>
 
-var search_engine = 2;
-
-if (search_engine == 1){
-    msg = 'https://www.google.com/search?q='+'test';
-	alert(msg);
-	window.location.replace(msg);
+function receiveMessage(e) {
+  var data = JSON.parse(e.data)；
+  alert(data.content);
+  alert(data.search_engine);
+  
+  if (data.search_engine == 1)
+  	window.location.href = 'https://www.google.com/search?q=' + data.content;
+  else if (data.search_engine == 2)
+	window.location.href = 'https://www.bing.com/search?q=' + data.content;
+  else
+	alert('Please define search engine');  
 }
-else
-	window.location.href = 'https://www.google.com';
+
+window.addEventListener("message", receiveMessage, false);
+ 
 </script>
 
 </body>
 </html>
+

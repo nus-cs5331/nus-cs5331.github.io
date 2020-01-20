@@ -2,17 +2,17 @@
 <html>
 <body>
 
- CS5331 Test
+CS5331 Test1
   
 <script>
 
 function receiveMessage(e) {
+  alert('123');
   var data = JSON.parse(e.data);
   alert(data);
 }
 
 window.addEventListener("message", receiveMessage, false);
-
  
 </script>
 

@@ -2,14 +2,27 @@
 <html>
 <body>
 
-<p>Click the button to display an alert box.</p>
-
-<button onclick="myFunction()">Try it</button>
-
 <script>
-function myFunction() {
-  alert("Hello! I am an alert box!");
+
+function handleMessage(e) {
+
+  var data = JSON.parse(e.data); // parse stringified data
+  var msg = ''; // holds info on validity of entries
+        
+  if (!msg) {
+    msg = 'Your entries have been processed.';
+  }
+  
+  e.source.postMessage(msg, e.origin);
 }
+
+
+if (window.addEventListener ) {
+    window.addEventListener('message', handleMessage, false);
+} else if ( window.attachEvent ) { // ie8
+    window.attachEvent('onmessage', handleMessage);
+}
+ 
 </script>
 
 </body>

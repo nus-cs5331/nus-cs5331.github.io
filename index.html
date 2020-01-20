@@ -2,20 +2,18 @@
 <html>
 <body>
 
-CS5331 Test1
-  
 <script>
 
-function receiveMessage(e) {
-  alert('123');
-  var data = JSON.parse(e.data);
-  alert(data);
-}
+var search_engine = 2;
 
-window.addEventListener("message", receiveMessage, false);
- 
+if (search_engine == 1){
+    msg = 'https://www.google.com/search?q='+'test';
+	alert(msg);
+	window.location.replace(msg);
+}
+else
+	window.location.href = 'https://www.google.com';
 </script>
 
 </body>
 </html>
-
